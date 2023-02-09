@@ -6,7 +6,6 @@ import reportWebVitals from "./reportWebVitals";
 import { NoteProvider } from "./context/note-context";
 import UserContextProvider from "./context/user-context";
 import { Auth0Provider } from "@auth0/auth0-react";
-import ArtBoard from "./components/ArtBoard";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
