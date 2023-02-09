@@ -1,25 +1,41 @@
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+import Navbar from "./components/Navbar";
+// import NoteList from "./components/NoteList";
+import AboutUs from "./pages/AboutUs";
+import Contact from "./pages/Contact";
+import Home from "./pages/Home";
+// import ProtectedRoute from "./components/ProtectedRoute";
+import NotesPage from "./pages/NotesPage";
+import SideBar from "./components/SideBar";
 
-function App() {
+const App = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="container">
+      {/* <BrowserRouter></BrowserRouter> */}
+      <BrowserRouter>
+        <SideBar />
+        <Navbar />
+        <Routes>
+          <Route path="/" element={<Home />} />
+          {/* <Route
+            path="/notes"
+            element={
+              <ProtectedRoute>
+                <NotesPage />
+              </ProtectedRoute>
+            }
+          /> */}
+          <Route path="/direct-notes" element={<NotesPage />} />
+          {/* <Route path="/notes" element={<NoteList />} /> */}
+          <Route path="/about" element={<AboutUs />} />
+          <Route path="/contactus" element={<Contact />} />
+          {/* <Route path="/notespage" element={<NotesPage />} /> */}
+          {/* // <NoteList /> */}
+        </Routes>
+      </BrowserRouter>
     </div>
   );
-}
+};
 
 export default App;
